@@ -44,6 +44,16 @@ body{background:var(--dark);color:var(--text);font-family:'EB Garamond',serif;fo
 .hero-nav{display:flex;gap:22px;justify-content:center;margin-top:44px;flex-wrap:wrap}
 .hero-nav a{font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:var(--text-dim);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:3px;transition:all .3s;cursor:pointer}
 .hero-nav a:hover{color:var(--gold);border-color:var(--gold-dim)}
+
+/* ── ABAS DE NAVEGAÇÃO ── */
+#tab-nav{position:sticky;top:0;z-index:100;background:rgba(6,4,2,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(232,192,96,.15)}
+.tab-nav-inner{display:flex;justify-content:center;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.tab-btn-nav{background:none;border:none;color:var(--text-dim);font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;padding:16px 20px;cursor:pointer;transition:all .3s;border-bottom:2px solid transparent;white-space:nowrap}
+.tab-btn-nav:hover{color:var(--gold)}
+.tab-btn-nav.active{color:var(--gold);border-bottom-color:var(--gold)}
+/* conteúdo das abas */
+.tab-panel{display:none}
+.tab-panel.active{display:block}
 .scroll-arrow{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--gold-dim);font-size:22px;animation:bob 2.2s ease infinite;cursor:pointer}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
 
@@ -310,86 +320,102 @@ footer .f-credit{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;co
     <h1 class="hero-name" id="h-name"><em>Em Memória de</em>Newton Faro Guimarães</h1>
     <p class="hero-epitaph" id="h-epitaph">"Uma vida de presença, sabedoria e amor dedicada à família e ao próximo. Sua memória é uma bênção que o tempo jamais apagará."</p>
     <nav class="hero-nav">
-      <a onclick="goTo('candles-sec')">🕯 Acender Vela</a>
-      <a onclick="goTo('bio-sec')">Biografia</a>
-      <a onclick="goTo('photos-sec')">Fotos</a>
-      <a onclick="goTo('stories-sec')">Histórias</a>
-      <a onclick="goTo('media-sec')">Vídeos & Mídia</a>
-      <a onclick="goTo('homenagens-sec')">Homenagens</a>
+      <a onclick="showTab('velas')">🕯 Acender Vela</a>
+      <a onclick="showTab('bio')">Biografia</a>
+      <a onclick="showTab('fotos')">Fotos</a>
+      <a onclick="showTab('historias')">Histórias</a>
+      <a onclick="showTab('midia')">Vídeos & Mídia</a>
+      <a onclick="showTab('homenagens')">Homenagens</a>
     </nav>
   </div>
-  <div class="scroll-arrow" onclick="goTo('candles-sec')">↓</div>
+  <div class="scroll-arrow" onclick="showTab('velas');window.scrollTo({top:document.getElementById('tab-nav').offsetTop,behavior:'smooth'})">↓</div>
 </section>
-<div class="sep"></div>
-
-<!-- VELAS -->
-<section id="candles-sec" class="sec-wrap">
-  <span class="sec-label">Homenagem</span>
-  <h2 class="sec-title">Acenda uma Vela</h2>
-  <p class="sec-sub">Uma vela acesa permanece por 30 dias, visível a todos — símbolo de luz e amor eterno.</p>
-  <br><span class="candles-status-txt" id="candles-status"></span>
-  <button class="light-btn" onclick="openModal('modal-candle')">🕯&nbsp;&nbsp;ACENDER UMA VELA</button>
-  <div id="candles-grid"></div>
-</section>
-<div class="sep"></div>
-
-<!-- BIOGRAFIA -->
-<section id="bio-sec" class="sec-wrap">
-  <div style="max-width:760px;margin:0 auto;text-align:center">
-    <span class="sec-label">Sua História</span>
-    <span class="qmark">"</span>
-    <p class="quote-main" id="bio-quote">"Uma vida inteira vivida com amor, trabalho e fé. Cada memória é um presente que o tempo não apaga."</p>
-    <div style="display:flex;justify-content:center"><div id="bio-quote-audio" class="audio-bar hidden"></div></div>
-    <button class="audio-add-btn" onclick="openAudioAdd('bio-quote-audio','Citação')">🔊 ADICIONAR ÁUDIO</button>
-    <br><br>
-    <div class="bio-body" id="bio-body">
-      <p>Newton Faro Guimarães nasceu em 17 de março de 1931 e partiu em 04 de fevereiro de 2026, aos 94 anos, deixando um legado de amor, sabedoria e dedicação para todos que tiveram o privilégio de conviver com ele.</p>
-      <p>Neste espaço, celebramos sua história — as risadas, os ensinamentos, os momentos que moldaram cada pessoa que ele tocou. Hoje, no que seria o seu 95º aniversário, reunimo-nos para honrar quem ele foi e o amor que continua vivo em nós.</p>
-    </div>
-    <div style="display:flex;justify-content:center"><div id="bio-body-audio" class="audio-bar hidden"></div></div>
-    <button class="audio-add-btn" onclick="openAudioAdd('bio-body-audio','Biografia')">🔊 ADICIONAR ÁUDIO</button>
+<!-- BARRA DE ABAS FIXA -->
+<nav id="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn-nav active" onclick="showTab('velas')">🕯 VELAS</button>
+    <button class="tab-btn-nav" onclick="showTab('bio')">✦ BIOGRAFIA</button>
+    <button class="tab-btn-nav" onclick="showTab('fotos')">🖼 FOTOS</button>
+    <button class="tab-btn-nav" onclick="showTab('historias')">✍ HISTÓRIAS</button>
+    <button class="tab-btn-nav" onclick="showTab('midia')">🎬 VÍDEOS</button>
+    <button class="tab-btn-nav" onclick="showTab('homenagens')">💬 HOMENAGENS</button>
   </div>
-</section>
-<div class="sep"></div>
+</nav>
 
-<!-- GALERIA -->
-<section id="photos-sec" class="sec-wrap">
-  <span class="sec-label">Memórias Visuais</span>
-  <h2 class="sec-title">Galeria de Fotos</h2>
-  <p class="sec-sub">Momentos capturados — cada imagem, uma história preservada para sempre.</p>
-  <div class="photo-grid" id="photo-grid"></div>
-</section>
-<div class="sep"></div>
+<!-- PAINEL: VELAS -->
+<div class="tab-panel active" id="tab-velas">
+  <section id="candles-sec" class="sec-wrap">
+    <span class="sec-label">Homenagem</span>
+    <h2 class="sec-title">Acenda uma Vela</h2>
+    <p class="sec-sub">Uma vela acesa permanece por 30 dias, visível a todos — símbolo de luz e amor eterno.</p>
+    <br><span class="candles-status-txt" id="candles-status"></span>
+    <button class="light-btn" onclick="openModal('modal-candle')">🕯&nbsp;&nbsp;ACENDER UMA VELA</button>
+    <div id="candles-grid"></div>
+  </section>
+</div>
 
-<!-- HISTÓRIAS -->
-<section id="stories-sec" class="sec-wrap">
-  <span class="sec-label">Memórias Escritas</span>
-  <h2 class="sec-title">Histórias & Lembranças</h2>
-  <p class="sec-sub">Fragmentos de uma vida vivida com intensidade — guardados aqui para sempre.</p>
-  <div class="stories-list" id="stories-list"></div>
-</section>
-<div class="sep"></div>
+<!-- PAINEL: BIOGRAFIA -->
+<div class="tab-panel" id="tab-bio">
+  <section id="bio-sec" class="sec-wrap">
+    <div style="max-width:760px;margin:0 auto;text-align:center">
+      <span class="sec-label">Sua História</span>
+      <span class="qmark">"</span>
+      <p class="quote-main" id="bio-quote">"Uma vida inteira vivida com amor, trabalho e fé. Cada memória é um presente que o tempo não apaga."</p>
+      <div style="display:flex;justify-content:center"><div id="bio-quote-audio" class="audio-bar hidden"></div></div>
+      <button class="audio-add-btn" onclick="openAudioAdd('bio-quote-audio','Citação')">🔊 ADICIONAR ÁUDIO</button>
+      <br><br>
+      <div class="bio-body" id="bio-body">
+        <p>Newton Faro Guimarães nasceu em 17 de março de 1931 e partiu em 04 de fevereiro de 2026, aos 94 anos, deixando um legado de amor, sabedoria e dedicação para todos que tiveram o privilégio de conviver com ele.</p>
+        <p>Neste espaço, celebramos sua história — as risadas, os ensinamentos, os momentos que moldaram cada pessoa que ele tocou. Hoje, no que seria o seu 95º aniversário, reunimo-nos para honrar quem ele foi e o amor que continua vivo em nós.</p>
+      </div>
+      <div style="display:flex;justify-content:center"><div id="bio-body-audio" class="audio-bar hidden"></div></div>
+      <button class="audio-add-btn" onclick="openAudioAdd('bio-body-audio','Biografia')">🔊 ADICIONAR ÁUDIO</button>
+    </div>
+  </section>
+</div>
 
-<!-- MÍDIA -->
-<section id="media-sec" class="sec-wrap">
-  <span class="sec-label">Memórias em Vídeo & Áudio</span>
-  <h2 class="sec-title">A História em Suas Próprias Palavras</h2>
-  <p class="sec-sub">Vídeos, músicas, áudios e documentos — sua voz e sua presença, preservadas para sempre.</p>
-  <div class="media-grid" id="media-grid"></div>
-</section>
-<div class="sep"></div>
+<!-- PAINEL: FOTOS -->
+<div class="tab-panel" id="tab-fotos">
+  <section id="photos-sec" class="sec-wrap">
+    <span class="sec-label">Memórias Visuais</span>
+    <h2 class="sec-title">Galeria de Fotos</h2>
+    <p class="sec-sub">Momentos capturados — cada imagem, uma história preservada para sempre.</p>
+    <div class="photo-grid" id="photo-grid"></div>
+  </section>
+</div>
 
-<!-- HOMENAGENS -->
-<section id="homenagens-sec" class="sec-wrap">
-  <span class="sec-label">Mensagens de Newton Faro</span>
-  <h2 class="sec-title">Homenagens</h2>
-  <p class="sec-sub">Palavras que Newton Faro deixou — em vídeo, com sua própria voz — para as pessoas que amou.</p>
-  <div style="display:flex;justify-content:center;margin-top:16px"><div id="homenagens-audio" class="audio-bar hidden"></div></div>
-  <button class="audio-add-btn" onclick="openAudioAdd('homenagens-audio','Homenagens')">🔊 ADICIONAR ÁUDIO</button>
-  <button class="add-homenagem-btn" id="btn-add-homenagem" onclick="openHomModal()">✦ &nbsp;ADICIONAR HOMENAGEM DE NEWTON FARO</button>
-  <div class="homenagens-grid" id="homenagens-grid"></div>
-</section>
-<div class="sep"></div>
+<!-- PAINEL: HISTÓRIAS -->
+<div class="tab-panel" id="tab-historias">
+  <section id="stories-sec" class="sec-wrap">
+    <span class="sec-label">Memórias Escritas</span>
+    <h2 class="sec-title">Histórias & Lembranças</h2>
+    <p class="sec-sub">Fragmentos de uma vida vivida com intensidade — guardados aqui para sempre.</p>
+    <div class="stories-list" id="stories-list"></div>
+  </section>
+</div>
+
+<!-- PAINEL: MÍDIA -->
+<div class="tab-panel" id="tab-midia">
+  <section id="media-sec" class="sec-wrap">
+    <span class="sec-label">Memórias em Vídeo & Áudio</span>
+    <h2 class="sec-title">A História em Suas Próprias Palavras</h2>
+    <p class="sec-sub">Vídeos, músicas, áudios e documentos — sua voz e sua presença, preservadas para sempre.</p>
+    <div class="media-grid" id="media-grid"></div>
+  </section>
+</div>
+
+<!-- PAINEL: HOMENAGENS -->
+<div class="tab-panel" id="tab-homenagens">
+  <section id="homenagens-sec" class="sec-wrap">
+    <span class="sec-label">Mensagens de Newton Faro</span>
+    <h2 class="sec-title">Homenagens</h2>
+    <p class="sec-sub">Palavras que Newton Faro deixou — em vídeo, com sua própria voz — para as pessoas que amou.</p>
+    <div style="display:flex;justify-content:center;margin-top:16px"><div id="homenagens-audio" class="audio-bar hidden"></div></div>
+    <button class="audio-add-btn" onclick="openAudioAdd('homenagens-audio','Homenagens')">🔊 ADICIONAR ÁUDIO</button>
+    <button class="add-homenagem-btn" id="btn-add-homenagem" onclick="openHomModal()">✦ &nbsp;ADICIONAR HOMENAGEM DE NEWTON FARO</button>
+    <div class="homenagens-grid" id="homenagens-grid"></div>
+  </section>
+</div>
 
 <footer>
   <p class="orn" style="margin-bottom:18px">— ✦ —</p>
@@ -638,7 +664,7 @@ footer .f-credit{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;co
 const JSONBIN_ID  = '';   // jsonbin.io para velas compartilhadas
 const JSONBIN_KEY = '';
 const JSONBIN_URL = JSONBIN_ID ? `https://api.jsonbin.io/v3/b/${JSONBIN_ID}` : '';
-const ADMIN_PASS  = 'NEWDRI193117';
+const ADMIN_PASS  = '193117';
 const SK = 'memorial_nfg_v5';   // chave do localStorage (SÓ metadados — sem base64)
 
 // ═══════════════════════════════════════════════════════════
@@ -727,6 +753,23 @@ function makeStars(){
   }
 }
 function goTo(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+function showTab(name){
+  // esconder todos os painéis
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn-nav').forEach(b=>b.classList.remove('active'));
+  // mostrar painel alvo
+  const panel=document.getElementById('tab-'+name);
+  if(panel){panel.classList.add('active');}
+  // ativar botão
+  const btns=document.querySelectorAll('.tab-btn-nav');
+  btns.forEach(b=>{if(b.textContent.toLowerCase().includes(name.substring(0,4))||b.getAttribute('onclick').includes(name))b.classList.add('active');});
+  // rolar para a barra de abas
+  const nav=document.getElementById('tab-nav');
+  if(nav)nav.scrollIntoView({behavior:'smooth',block:'start'});
+  // re-render se necessário (fotos e homenagens são async)
+  if(name==='fotos')renderPhotos();
+  if(name==='homenagens')renderHomenagens();
+}
 
 // ═══════════════════════════════════════════════════════════
 // RESOLUÇÃO DE SRC — chave IDB ou URL externa
@@ -1149,10 +1192,20 @@ function renderMedia(){
         ${isDrive?`<span style="font-size:9px;color:rgba(74,144,217,.7);font-family:'Cinzel',serif;letter-spacing:1px">GOOGLE DRIVE</span>`:''}
       </div>`;
     }
+    // Para Drive: usar thumbnail via googleusercontent (funciona quando público)
+    let driveThumb='';
+    if(isDrive){
+      const did=extractGDriveId(m.url);
+      if(did)driveThumb=`https://drive.google.com/thumbnail?id=${did}&sz=w400`;
+    }
+    // Reconstruir thumbHtml com Drive thumbnail
+    if(isDrive && driveThumb){
+      thumbHtml=`<img src="${driveThumb}" class="media-thumb-bg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div style="position:absolute;inset:0;background:${cfg.bg};display:none;align-items:center;justify-content:center;flex-direction:column;gap:8px"><span style='font-size:42px'>${cfg.icon}</span><span style='font-family:Cinzel,serif;font-size:8px;letter-spacing:3px;color:${cfg.color}'>GOOGLE DRIVE</span></div>`;
+    }
     return `<div class="media-card" onclick="playMedia(${i})">
-      <div class="media-thumb" style="position:relative;overflow:hidden">
-        ${thumbHtml}
-        <div class="play-overlay" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);transition:background .3s">
+      <div class="media-thumb" style="position:relative;overflow:hidden;width:100%;padding-top:56.25%">
+        <div style="position:absolute;inset:0">${thumbHtml}</div>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);transition:background .3s" onmouseover="this.style.background='rgba(0,0,0,.15)'" onmouseout="this.style.background='rgba(0,0,0,.35)'">
           <div class="play-icon">${m.type==='pdf'?'📄':m.type==='audio'?'♪':'▶'}</div>
         </div>
       </div>
