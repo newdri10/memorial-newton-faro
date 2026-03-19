@@ -1375,22 +1375,19 @@ function playMedia(i){
           allow="autoplay;fullscreen" allowfullscreen></iframe></div>`;
     }
     else if(p.src==='gdrive'){
-      const embedUrl='https://drive.google.com/file/d/'+p.gdId+'/preview';
       const driveOpen=m.url;
       const thumbUrl='https://drive.google.com/thumbnail?id='+p.gdId+'&sz=w640';
-      const pid='gd_'+Date.now();
       html=`<div style="background:#000;position:relative">
-        <div style="position:relative;padding-top:56.25%;background:#0a0805;overflow:hidden">
-          <img src="${thumbUrl}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5" onerror="this.style.display='none'">
-          <div id="poster_${pid}" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">
-            <div onclick="startDriveVideo('${pid}','${embedUrl}')" style="width:90px;height:90px;border-radius:50%;background:rgba(232,192,96,.95);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 50px rgba(232,192,96,.6);transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-              <span style="font-size:36px;margin-left:6px">▶</span>
-            </div>
-            <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);margin:0">CLIQUE PARA REPRODUZIR NO PLAYER</p>
-            <a href="${driveOpen}" target="_blank" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(232,192,96,.6);text-decoration:none;border-bottom:1px solid rgba(232,192,96,.3);padding-bottom:2px">ou abrir no Google Drive ↗</a>
-          </div>
-          <div id="player_${pid}" style="display:none;position:absolute;inset:0">
-            <iframe src="" data-src="${embedUrl}" allow="autoplay;fullscreen" allowfullscreen style="width:100%;height:100%;border:none"></iframe>
+        <div style="position:relative;padding-top:56.25%;background:#080503;overflow:hidden">
+          <img src="${thumbUrl}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45" onerror="this.style.display='none'">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px">
+            <a href="${driveOpen}" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:14px;text-decoration:none;cursor:pointer">
+              <div style="width:96px;height:96px;border-radius:50%;background:rgba(232,192,96,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 0 60px rgba(232,192,96,.5);transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                <span style="font-size:38px;margin-left:7px">▶</span>
+              </div>
+              <p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--gold);margin:0;text-align:center">ASSISTIR NO GOOGLE DRIVE</p>
+            </a>
+            <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;color:rgba(232,192,96,.45);margin:0">Abre em nova aba — sem instalação</p>
           </div>
         </div>
       </div>`;
