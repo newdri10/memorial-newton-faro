@@ -325,7 +325,7 @@ footer .f-credit{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;co
       <a onclick="showTab('fotos')">Fotos</a>
       <a onclick="showTab('historias')">Histórias</a>
       <a onclick="showTab('midia')">Vídeos & Mídia</a>
-      <a onclick="showTab('homenagens')">Homenagens</a>
+      <a onclick="showTab('homenagens')">Newton Por ele Mesmo</a>
     </nav>
   </div>
   <div class="scroll-arrow" onclick="showTab('velas');window.scrollTo({top:document.getElementById('tab-nav').offsetTop,behavior:'smooth'})">↓</div>
@@ -338,7 +338,7 @@ footer .f-credit{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;co
     <button class="tab-btn-nav" onclick="showTab('fotos')">🖼 FOTOS</button>
     <button class="tab-btn-nav" onclick="showTab('historias')">✍ HISTÓRIAS</button>
     <button class="tab-btn-nav" onclick="showTab('midia')">🎬 VÍDEOS</button>
-    <button class="tab-btn-nav" onclick="showTab('homenagens')">💬 HOMENAGENS</button>
+    <button class="tab-btn-nav" onclick="showTab('homenagens')">🎬 NEWTON POR ELE MESMO</button>
   </div>
 </nav>
 
@@ -407,12 +407,12 @@ footer .f-credit{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;co
 <!-- PAINEL: HOMENAGENS -->
 <div class="tab-panel" id="tab-homenagens">
   <section id="homenagens-sec" class="sec-wrap">
-    <span class="sec-label">Mensagens de Newton Faro</span>
-    <h2 class="sec-title">Homenagens</h2>
-    <p class="sec-sub">Palavras que Newton Faro deixou — em vídeo, com sua própria voz — para as pessoas que amou.</p>
+    <span class="sec-label">Sua Voz, Sua História</span>
+    <h2 class="sec-title">Newton Por ele Mesmo</h2>
+    <p class="sec-sub">Newton Faro conta sua própria história — com sua voz, seu rosto, suas palavras. Uma herança para sempre.</p>
     <div style="display:flex;justify-content:center;margin-top:16px"><div id="homenagens-audio" class="audio-bar hidden"></div></div>
     <button class="audio-add-btn" onclick="openAudioAdd('homenagens-audio','Homenagens')">🔊 ADICIONAR ÁUDIO</button>
-    <button class="add-homenagem-btn" id="btn-add-homenagem" onclick="openHomModal()">✦ &nbsp;ADICIONAR HOMENAGEM DE NEWTON FARO</button>
+    <button class="add-homenagem-btn" id="btn-add-homenagem" onclick="openHomModal()">✦ &nbsp;ADICIONAR VÍDEO DE NEWTON FARO</button>
     <div class="homenagens-grid" id="homenagens-grid"></div>
   </section>
 </div>
@@ -439,7 +439,7 @@ footer .f-credit{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;co
     <div class="adm-card" onclick="adminAddPhoto()"><div class="adm-icon">🖼</div><p class="adm-label">Adicionar Foto</p><p class="adm-desc">Upload ou link de foto</p></div>
     <div class="adm-card" onclick="adminAddStory()"><div class="adm-icon">✍</div><p class="adm-label">Nova História</p><p class="adm-desc">Texto, título e áudio</p></div>
     <div class="adm-card" onclick="adminAddMedia()"><div class="adm-icon">🎬</div><p class="adm-label">Adicionar Mídia</p><p class="adm-desc">Link de vídeo, áudio ou PDF</p></div>
-    <div class="adm-card" onclick="openHomModal()"><div class="adm-icon">🎬</div><p class="adm-label">Nova Homenagem</p><p class="adm-desc">Vídeo avatar para alguém</p></div>
+    <div class="adm-card" onclick="openHomModal()"><div class="adm-icon">🎬</div><p class="adm-label">Novo Vídeo</p><p class="adm-desc">Newton contando sua história</p></div>
     <div class="adm-card" onclick="adminCandles()"><div class="adm-icon">🕯</div><p class="adm-label">Gerenciar Velas</p><p class="adm-desc">Ver e remover velas</p></div>
     <div class="adm-card" onclick="adminFooter()"><div class="adm-icon">⚑</div><p class="adm-label">Editar Rodapé</p><p class="adm-desc">Citação final</p></div>
     <div class="adm-card" onclick="adminLogout()"><div class="adm-icon">↩</div><p class="adm-label">Sair</p><p class="adm-desc">Encerrar sessão</p></div>
@@ -572,7 +572,7 @@ footer .f-credit{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;co
 <!-- HOMENAGEM -->
 <div class="modal-overlay" id="modal-homenagem">
   <div class="modal-box">
-    <div class="modal-hd"><p class="modal-title" id="mhom-title">🎬 HOMENAGEM DE NEWTON FARO</p><button class="modal-close" onclick="closeModal('modal-homenagem')">✕</button></div>
+    <div class="modal-hd"><p class="modal-title" id="mhom-title">🎬 VÍDEO DE NEWTON FARO</p><button class="modal-close" onclick="closeModal('modal-homenagem')">✕</button></div>
     <div class="modal-body">
       <div style="background:rgba(232,192,96,.07);border:1px solid rgba(232,192,96,.22);padding:14px 18px;margin-bottom:20px">
         <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);margin-bottom:12px">👤 DESTINATÁRIO</p>
@@ -585,7 +585,7 @@ footer .f-credit{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;co
             <p style="font-size:10px;color:var(--text-dim);margin-top:5px;text-align:center;max-width:72px;line-height:1.4">Foto do destinatário</p>
           </div>
           <div style="flex:1">
-            <div class="field"><label>Nome do Destinatário</label><input id="hom-name" maxlength="60" placeholder="Para quem Newton Faro está falando?"></div>
+            <div class="field"><label>Nome do Destinatário</label><input id="hom-name" maxlength="60" placeholder="Nome da pessoa (opcional)"></div>
             <div class="field"><label>Relação</label><input id="hom-relation" maxlength="60" placeholder="ex: Meu filho querido..."></div>
           </div>
         </div>
@@ -668,8 +668,12 @@ const ADMIN_PASS  = '193117';
 const SK = 'memorial_nfg_v6';
 
 // ═══════════════════════════════════════════════════════════
-// ARMAZENAMENTO — IndexedDB para fotos + localStorage para dados
+// ARMAZENAMENTO COMPARTILHADO — Cloudflare D1 via Worker
+// Todos os usuários veem os mesmos dados em tempo real
 // ═══════════════════════════════════════════════════════════
+
+const WORKER = 'https://memorial-newton-faro.newdri.workers.dev';
+const ADMIN_KEY = '193117';
 
 let idb = null;
 function openIDB(){
@@ -702,13 +706,25 @@ function idbDel(key){
 }
 
 function defaultData(){return{
-  hero:{name:'Newton Faro Guimarães',dates:'17 DE MARÇO DE 1931 · 04 DE FEVEREIRO DE 2026',photoKey:'',photoUrl:'',epitaph:'Uma vida de presença, sabedoria e amor dedicada à família e ao próximo. Sua memória é uma bênção que o tempo jamais apagará.'},
-  bio:{quote:'Uma vida inteira vivida com amor, trabalho e fé. Cada memória é um presente que o tempo não apaga.',body:'Newton Faro Guimarães nasceu em 17 de março de 1931 e partiu em 04 de fevereiro de 2026, aos 94 anos, deixando um legado de amor, sabedoria e dedicação para todos que tiveram o privilégio de conviver com ele.\n\nNeste espaço, celebramos sua história — as risadas, os ensinamentos, os momentos que moldaram cada pessoa que ele tocou. Hoje, no que seria o seu 95º aniversário, reunimo-nos para honrar quem ele foi e o amor que continua vivo em nós.'},
+  hero:{name:'Newton Faro Guimarães',dates:'17 DE MARÇO DE 1931 · 04 DE FEVEREIRO DE 2026',photoKey:'',photoUrl:'https://drive.google.com/uc?export=view&id=1cP_2r2P64artYLG5FC2ox1HFzbe_8EM_',epitaph:'Uma vida de presença, sabedoria e amor dedicada à família e ao próximo. Sua memória é uma bênção que o tempo jamais apagará.'},
+  bio:{quote:'Uma vida inteira vivida com amor, trabalho e fé. Cada memória é um presente que o tempo não apaga.',body:'Newton Faro Guimarães nasceu em 17 de março de 1931, em Minas Gerais, e partiu em 04 de fevereiro de 2026, aos 94 anos. Deixou um legado de amor, sabedoria e dedicação para todos que tiveram o privilégio de conviver com ele.\n\nHomem de fé profunda e coração generoso, dedicou sua vida à família e ao próximo. Suas histórias, sua voz e seu sorriso ficam gravados para sempre na memória de quem o amou.\n\nHoje, no que seria o seu 95º aniversário, reunimo-nos aqui para honrar quem ele foi — e celebrar o amor que continua vivo em nós.'},
   footer:{quote:'"A memória dos justos é uma bênção." — Provérbios 10:7'},
   audios:{},photos:[],stories:[],media:[],homenagens:[]
 }}
 
-let D=(()=>{try{const s=localStorage.getItem(SK);return s?JSON.parse(s):defaultData()}catch{return defaultData()}})();
+let D=(()=>{
+  try{
+    const s=localStorage.getItem(SK);
+    const saved=s?JSON.parse(s):null;
+    const base=defaultData();
+    if(saved){
+      // Mesclar com base para garantir foto e bio padrão
+      if(!saved.hero?.photoUrl) saved.hero = {...(saved.hero||{}), ...base.hero};
+      return saved;
+    }
+    return base;
+  }catch{return defaultData();}
+})();
 let CANDLES=[];
 let adminMode=false;
 let editPhotoIdx=null,editStoryIdx=null,editHomIdx=null;
@@ -716,20 +732,61 @@ let currentAudioTarget=null;
 let pendingPhotoBlob=null,pendingPhotoOptId=null;
 let pendingAvatarBlob=null;
 
-function save(){
-  try{localStorage.setItem(SK,JSON.stringify(D))}
-  catch(e){
-    // Se localStorage cheio, limpar dados antigos menos importantes
-    toast('⚠ Aviso: armazenamento quase cheio');
-    console.warn('localStorage full',e);
-  }
+// Salvar settings no Worker (hero, bio, footer, audios)
+async function saveToCloud(section, data){
+  try{
+    await fetch(WORKER+'/save', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-Admin-Key':ADMIN_KEY},
+      body: JSON.stringify({section, data})
+    });
+  }catch(e){console.warn('cloud save error',e);}
 }
 
+function save(){
+  // Salvar localmente sempre
+  try{localStorage.setItem(SK,JSON.stringify(D));}catch(e){}
+  // Salvar no cloud em background (só settings de texto)
+  saveToCloud('settings',{hero:D.hero,bio:D.bio,footer:D.footer,audios:D.audios});
+}
+
+// Carregar tudo do Worker (dados compartilhados)
 async function loadAll(){
-  // Carregar do localStorage (já feito no init de D acima)
-  // Carregar velas do JSONBin se configurado
-  await loadCandles();
-  return true;
+  try{
+    const r = await fetch(WORKER+'/all');
+    if(!r.ok) throw new Error('Worker error '+r.status);
+    const data = await r.json();
+    
+    if(data.hero)    D.hero    = {...D.hero,    ...data.hero};
+    if(data.bio)     D.bio     = {...D.bio,     ...data.bio};
+    if(data.footer)  D.footer  = {...D.footer,  ...data.footer};
+    if(data.audios)  D.audios  = {...D.audios,  ...data.audios};
+    if(data.photos)  D.photos  = data.photos;
+    if(data.stories) D.stories = data.stories;
+    if(data.media)   D.media   = data.media;
+    if(data.homenagens) D.homenagens = data.homenagens;
+    if(data.candles) CANDLES = data.candles;
+    
+    // Salvar cópia local como cache
+    try{localStorage.setItem(SK,JSON.stringify(D));}catch(e){}
+    return true;
+  }catch(e){
+    console.warn('loadAll cloud error, using local cache:', e.message);
+    // Fallback: usar cache local
+    try{
+      const local = JSON.parse(localStorage.getItem(SK)||'{}');
+      if(local.hero)    D.hero    = {...D.hero,...local.hero};
+      if(local.bio)     D.bio     = {...D.bio,...local.bio};
+      if(local.photos)  D.photos  = local.photos  || [];
+      if(local.stories) D.stories = local.stories || [];
+      if(local.media)   D.media   = local.media   || [];
+      if(local.homenagens) D.homenagens = local.homenagens || [];
+      if(local.audios)  D.audios  = local.audios  || {};
+      CANDLES = JSON.parse(localStorage.getItem(SK+'_candles')||'[]')
+        .filter(c=>c.expires>Date.now());
+    }catch(e2){}
+    return false;
+  }
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -738,12 +795,19 @@ async function loadAll(){
 (async function init(){
   await openIDB();
   makeStars();
+  // Renderizar com dados padrão primeiro (rápido)
+  await renderHero();
+  renderBio();
+  document.querySelectorAll('.modal-overlay').forEach(el=>el.addEventListener('click',e=>{if(e.target===el)closeModal(el.id)}));
+  // Carregar dados do cloud em background
+  const ok = await loadAll();
+  // Re-renderizar com dados do cloud
   await renderHero();
   renderBio();renderStories();renderMedia();renderHomenagens();
   renderAllAudios();
   await renderPhotos();
-  await loadCandles();
-  document.querySelectorAll('.modal-overlay').forEach(el=>el.addEventListener('click',e=>{if(e.target===el)closeModal(el.id)}));
+  renderCandles();
+  if(!ok) console.log('Usando dados locais (offline)');
 })();
 
 function makeStars(){
@@ -919,15 +983,17 @@ function saveBio(){D.bio={quote:v('bq')||D.bio.quote,body:v('bb')||D.bio.body};s
 // ═══════════════════════════════════════════════════════════
 async function loadCandles(){
   try{
-    if(JSONBIN_URL){const r=await fetch(JSONBIN_URL+'/latest',{headers:{'X-Master-Key':JSONBIN_KEY,'X-Bin-Meta':false}});const j=await r.json();CANDLES=(j.candles||[]).filter(c=>c.expires>Date.now());}
-    else{CANDLES=JSON.parse(localStorage.getItem(SK+'_candles')||'[]').filter(c=>c.expires>Date.now());}
-  }catch{CANDLES=JSON.parse(localStorage.getItem(SK+'_candles')||'[]').filter(c=>c.expires>Date.now())}
+    const r=await fetch(WORKER+'/candles');
+    if(!r.ok)throw new Error('status '+r.status);
+    CANDLES=(await r.json()).filter(c=>c.expires>Date.now());
+    localStorage.setItem(SK+'_candles',JSON.stringify(CANDLES));
+  }catch(e){
+    CANDLES=JSON.parse(localStorage.getItem(SK+'_candles')||'[]').filter(c=>c.expires>Date.now());
+  }
   renderCandles();
 }
 async function saveCandles(){
   localStorage.setItem(SK+'_candles',JSON.stringify(CANDLES));
-  if(!JSONBIN_URL)return;
-  try{await fetch(JSONBIN_URL,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':JSONBIN_KEY},body:JSON.stringify({candles:CANDLES})})}catch(e){console.warn(e)}
 }
 async function lightCandle(){
   const name=v('c-name');if(!name){toast('Insira seu nome');return}
@@ -986,7 +1052,11 @@ async function adminCandles(){
   openModal('modal-candles-list');
 }
 async function removeCandle(i){
-  CANDLES.splice(i,1);await saveCandles();renderCandles();adminCandles();toast('Vela removida');
+  const id=CANDLES[i]?.id;
+  CANDLES.splice(i,1);
+  localStorage.setItem(SK+'_candles',JSON.stringify(CANDLES));
+  renderCandles();adminCandles();toast('Vela removida');
+  if(id){try{await fetch(WORKER+'/candles/'+id,{method:'DELETE',headers:{'X-Admin-Key':ADMIN_KEY}});}catch(e){}}
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -1038,19 +1108,30 @@ function editPhoto(i){
 }
 async function savePhoto(){
   const cap=v('p-caption');
-  let url=v('p-url');let key='';
+  let url=v('p-url');let idbKey='';
   if(pendingPhotoBlob){
-    key='photo_'+Date.now();
-    await idbPut(key,pendingPhotoBlob);
+    idbKey='photo_'+Date.now();
+    await idbPut(idbKey,pendingPhotoBlob);
     if(editPhotoIdx!==null&&D.photos[editPhotoIdx]?.key)await idbDel(D.photos[editPhotoIdx].key);
     url='';
   }
-  if(!url&&!key&&editPhotoIdx!==null){
-    D.photos[editPhotoIdx].caption=cap;save();await renderPhotos();closeModal('modal-photo');toast('Legenda atualizada');return;
+  if(!url&&!idbKey&&editPhotoIdx!==null){
+    D.photos[editPhotoIdx].caption=cap;
+    save();
+    await renderPhotos();closeModal('modal-photo');toast('Legenda atualizada');return;
   }
-  if(!url&&!key){toast('Selecione ou cole URL de uma foto');return}
-  const obj={url,key,caption:cap};
+  if(!url&&!idbKey){toast('Selecione ou cole URL de uma foto');return}
+  const obj={url,key:idbKey,caption:cap};
   if(editPhotoIdx!==null){D.photos[editPhotoIdx]=obj}else{D.photos.push(obj)}
+  // cloud: só salvar fotos com URL (não base64)
+  if(url){
+    try{
+      const method=editPhotoIdx!==null?'PUT':'POST';
+      const endpoint=editPhotoIdx!==null?WORKER+'/photos/'+D.photos[editPhotoIdx]?.cloudId:WORKER+'/photos';
+      const r=await fetch(endpoint,{method,headers:{'Content-Type':'application/json','X-Admin-Key':ADMIN_KEY},body:JSON.stringify({url,caption:cap})});
+      if(r.ok){const j=await r.json();if(j.id&&editPhotoIdx===null)D.photos[D.photos.length-1].cloudId=j.id;}
+    }catch(e){console.warn('photo cloud save:',e);}
+  }
   save();pendingPhotoBlob=null;await renderPhotos();closeModal('modal-photo');
   toast(editPhotoIdx!==null?'Foto atualizada':'Foto adicionada');
 }
@@ -1095,6 +1176,12 @@ async function saveStory(){
   const idx=isNew?D.stories.length-1:editStoryIdx;
   if(audioUrl)D.audios['story-audio-'+idx]={url:audioUrl,label:title};
   save();renderStories();closeModal('modal-story');toast(isNew?'História adicionada':'História atualizada');
+  // cloud
+  try{
+    const payload={title,date_tag:obj.date,body,audio_url:audioUrl||''};
+    if(isNew){const r=await fetch(WORKER+'/stories',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Key':ADMIN_KEY},body:JSON.stringify(payload)});if(r.ok){const j=await r.json();if(j.id)D.stories[idx].cloudId=j.id;}}
+    else if(D.stories[idx].cloudId){await fetch(WORKER+'/stories/'+D.stories[idx].cloudId,{method:'PUT',headers:{'Content-Type':'application/json','X-Admin-Key':ADMIN_KEY},body:JSON.stringify(payload)});}
+  }catch(e){console.warn('story cloud:',e);}
 }
 function deleteStory(){if(editStoryIdx===null)return;D.stories.splice(editStoryIdx,1);save();renderStories();closeModal('modal-story');toast('História removida')}
 
@@ -1157,12 +1244,18 @@ function onMediaUrlChange(){
   if(el&&url)el.style.color=info.ok?'#90d890':'#f08080';
   if(el)el.textContent=info.msg;
 }
-function saveMedia(){
+async function saveMedia(){
   const type=document.getElementById('m-type').value;
   const title=v('m-title');const url=v('m-url');
   if(!title||!url){toast('Preencha título e URL');return}
-  D.media.push({type,title,url,desc:v('m-desc'),added:new Date().toISOString()});
+  const item={type,title,url,desc:v('m-desc'),added:new Date().toISOString()};
+  D.media.push(item);
   save();renderMedia();closeModal('modal-media');toast('Mídia adicionada');
+  // salvar no cloud
+  try{
+    const r=await fetch(WORKER+'/media',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Key':ADMIN_KEY},body:JSON.stringify({type,title,url,description:v('m-desc')})});
+    if(r.ok){const j=await r.json();if(j.id)item.cloudId=j.id;}
+  }catch(e){console.warn('media cloud:',e);}
 }
 function renderMedia(){
   const g=document.getElementById('media-grid');
@@ -1285,40 +1378,20 @@ function playMedia(i){
       const embedUrl='https://drive.google.com/file/d/'+p.gdId+'/preview';
       const driveOpen=m.url;
       const thumbUrl='https://drive.google.com/thumbnail?id='+p.gdId+'&sz=w640';
-      // Gerar ID único para este player
       const pid='gd_'+Date.now();
       html=`<div style="background:#000;position:relative">
-        <!-- Poster clicável sobre o iframe — resolve o spinner sem início -->
-        <div id="poster_${pid}" style="position:relative;cursor:pointer" onclick="startDriveVideo('${pid}','${embedUrl}')">
-          <div style="position:relative;padding-top:56.25%;background:#0a0805;overflow:hidden">
-            <img src="${thumbUrl}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7" onerror="this.style.display='none'">
-            <!-- Botão de play centralizado -->
-            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
-              <div style="width:80px;height:80px;border-radius:50%;background:rgba(232,192,96,.95);display:flex;align-items:center;justify-content:center;transition:transform .2s;box-shadow:0 0 40px rgba(232,192,96,.5)">
-                <span style="font-size:32px;margin-left:6px">▶</span>
-              </div>
-              <p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--gold);margin:0">CLIQUE PARA REPRODUZIR</p>
+        <div style="position:relative;padding-top:56.25%;background:#0a0805;overflow:hidden">
+          <img src="${thumbUrl}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5" onerror="this.style.display='none'">
+          <div id="poster_${pid}" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">
+            <div onclick="startDriveVideo('${pid}','${embedUrl}')" style="width:90px;height:90px;border-radius:50%;background:rgba(232,192,96,.95);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 50px rgba(232,192,96,.6);transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+              <span style="font-size:36px;margin-left:6px">▶</span>
             </div>
+            <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);margin:0">CLIQUE PARA REPRODUZIR NO PLAYER</p>
+            <a href="${driveOpen}" target="_blank" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(232,192,96,.6);text-decoration:none;border-bottom:1px solid rgba(232,192,96,.3);padding-bottom:2px">ou abrir no Google Drive ↗</a>
           </div>
-        </div>
-        <!-- Iframe oculto — só carrega quando usuário clica -->
-        <div id="player_${pid}" style="display:none">
-          <div style="position:relative;padding-top:56.25%">
-            <iframe
-              src=""
-              data-src="${embedUrl}"
-              allow="autoplay;fullscreen"
-              allowfullscreen
-              style="position:absolute;inset:0;width:100%;height:100%;border:none">
-            </iframe>
+          <div id="player_${pid}" style="display:none;position:absolute;inset:0">
+            <iframe src="" data-src="${embedUrl}" allow="autoplay;fullscreen" allowfullscreen style="width:100%;height:100%;border:none"></iframe>
           </div>
-        </div>
-        <!-- Botão Abrir no Drive sempre visível -->
-        <div style="text-align:center;padding:10px 14px;background:rgba(0,0,0,.7);display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center">
-          <a href="${driveOpen}" target="_blank"
-            style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-decoration:none;padding:9px 20px;border:1px solid var(--gold);display:inline-block">
-            ▶ ABRIR NO GOOGLE DRIVE
-          </a>
         </div>
       </div>`;
     }
@@ -1352,8 +1425,7 @@ function playMedia(i){
 function showGdriveDownload(i,gdId){
   console.log('Drive iframe error for',gdId);
 }
-function startDriveVideo(pid, embedUrl){
-  // Esconder poster, mostrar iframe com src preenchido
+function startDriveVideo(pid, embedUrl, driveOpenUrl){
   const poster=document.getElementById('poster_'+pid);
   const player=document.getElementById('player_'+pid);
   if(poster)poster.style.display='none';
@@ -1361,7 +1433,7 @@ function startDriveVideo(pid, embedUrl){
     player.style.display='block';
     const iframe=player.querySelector('iframe');
     if(iframe&&iframe.dataset.src){
-      iframe.src=iframe.dataset.src+'?autoplay=1';
+      iframe.src=iframe.dataset.src;
     }
   }
 }
@@ -1420,7 +1492,13 @@ async function saveHomenagem(){
   const idx=isNew?D.homenagens.length-1:editHomIdx;
   if(audioUrl)D.audios['hom-audio-'+idx]={url:audioUrl,label:'Homenagem de '+name};
   save();await renderHomenagens();closeModal('modal-homenagem');pendingAvatarBlob=null;editHomIdx=null;
-  toast(isNew?'Homenagem adicionada ✦':'Homenagem atualizada');
+  toast(isNew?'Vídeo adicionado ✦':'Vídeo atualizado');
+  // cloud
+  try{
+    const payload={name,relation:v('hom-relation'),body:v('hom-text'),avatar_url:avatarUrl,idb_key:avatarKey,video_url:videoUrl,audio_url:audioUrl||''};
+    if(isNew){const r=await fetch(WORKER+'/homenagens',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Key':ADMIN_KEY},body:JSON.stringify(payload)});if(r.ok){const j=await r.json();if(j.id)D.homenagens[idx].cloudId=j.id;}}
+    else if(D.homenagens[idx].cloudId){await fetch(WORKER+'/homenagens/'+D.homenagens[idx].cloudId,{method:'PUT',headers:{'Content-Type':'application/json','X-Admin-Key':ADMIN_KEY},body:JSON.stringify(payload)});}
+  }catch(e){console.warn('hom cloud:',e);}
 }
 async function deleteHomenagem(){
   if(editHomIdx===null)return;
@@ -1454,7 +1532,7 @@ async function renderHomenagens(){
           <p style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white)">${esc(h.name)}</p>
           ${vi?`<div class="hom-play-ring">▶</div><p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--gold-dim);margin-top:8px;position:absolute;bottom:14px;left:0;right:0;text-align:center">CLIQUE PARA REPRODUZIR</p>`:'<p style="font-size:12px;color:var(--text-dim);margin-top:10px;font-style:italic">Sem vídeo</p>'}
         </div>
-        ${vi?`<span class="hom-video-label">🎬 NEWTON FARO PARA VOCÊ</span>`:''}
+        ${vi?`<span class="hom-video-label">🎬 NEWTON POR ELE MESMO</span>`:''}
       </div>
       <div class="hom-body">
         <div class="hom-top"><div class="hom-avatar-sm">${avSmHtml}</div>
