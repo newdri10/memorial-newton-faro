@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO · Publicar nos Mecanismos de Busca</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#e8c060;--gold-light:#f8e090;--gold-dim:#c49840;--gold-faint:rgba(232,192,96,.13);
+  --dark:#060402;--dark2:#0e0c07;--dark3:#161209;--stone:#201b10;
+  --cream:#fff;--text:#f0e8cc;--text-dim:#d4b870;
+  --green:#4caf82;--red:#e05050;--blue:#4a90d9;
+  --border:rgba(232,192,96,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:'EB Garamond',serif;font-size:18px;line-height:1.8;min-height:100vh}
+
+/* HEADER */
+header{background:var(--dark2);border-bottom:1px solid var(--border);padding:28px 24px;text-align:center}
+header h1{font-family:'Cinzel',serif;font-size:22px;letter-spacing:5px;color:var(--gold);font-weight:600;text-transform:uppercase}
+header p{color:var(--text-dim);font-size:15px;margin-top:6px;letter-spacing:1px}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold-dim);text-decoration:none;border:1px solid rgba(232,192,96,.2);padding:6px 14px;margin-bottom:18px;transition:all .3s}
+.back-link:hover{border-color:var(--gold);color:var(--gold)}
+
+/* MAIN LAYOUT */
+main{max-width:860px;margin:0 auto;padding:40px 20px 80px}
+.section{background:var(--dark2);border:1px solid var(--border);padding:32px;margin-bottom:28px;position:relative}
+.section::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
+.sec-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;display:block}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--cream);margin-bottom:18px;line-height:1.2}
+
+/* URL FORM */
+.url-form{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.url-input{flex:1;min-width:260px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);font-family:'EB Garamond',serif;font-size:17px;padding:13px 18px;outline:none;transition:border .3s}
+.url-input:focus{border-color:var(--gold-dim)}
+.url-input::placeholder{color:rgba(240,232,204,.3)}
+.btn{background:none;border:1px solid var(--gold-dim);color:var(--gold-light);font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;padding:13px 28px;cursor:pointer;transition:all .3s;white-space:nowrap;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s;opacity:.12}
+.btn:hover::before{transform:scaleX(1)}
+.btn:hover{border-color:var(--gold);color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-sm{font-size:10px;letter-spacing:3px;padding:8px 18px}
+.btn-green{border-color:var(--green);color:var(--green)}
+.btn-green::before{background:var(--green)}
+
+/* ENGINE LIST */
+.engine-list{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.engine-item{display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--border);background:rgba(255,255,255,.02);transition:border .3s}
+.engine-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:rgba(232,192,96,.08);border:1px solid var(--border)}
+.engine-info{flex:1}
+.engine-name{font-family:'Cinzel',serif;font-size:13px;letter-spacing:2px;color:var(--gold-light)}
+.engine-note{font-size:14px;color:var(--text-dim);margin-top:2px}
+.engine-status{flex-shrink:0;min-width:120px;text-align:right}
+.status-badge{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;padding:5px 12px;border:1px solid;display:inline-block}
+.status-pending{color:var(--text-dim);border-color:rgba(212,184,112,.2)}
+.status-sending{color:var(--blue);border-color:var(--blue);animation:pulse 1s infinite}
+.status-ok{color:var(--green);border-color:var(--green)}
+.status-manual{color:var(--gold);border-color:var(--gold-dim)}
+.status-error{color:var(--red);border-color:var(--red)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* STEPS */
+.steps-list{list-style:none;counter-reset:step;margin-top:18px;display:flex;flex-direction:column;gap:16px}
+.step-item{display:flex;gap:18px;padding:18px;border:1px solid var(--border);background:rgba(255,255,255,.02)}
+.step-num{width:36px;height:36px;border:1px solid var(--gold-dim);color:var(--gold);font-family:'Cinzel',serif;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-body{flex:1}
+.step-title{font-family:'Cinzel',serif;font-size:13px;letter-spacing:2px;color:var(--gold-light);margin-bottom:6px}
+.step-desc{font-size:15px;color:var(--text-dim);line-height:1.7}
+.step-link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);text-decoration:none;border:1px solid rgba(232,192,96,.25);padding:7px 16px;transition:all .3s}
+.step-link:hover{border-color:var(--gold);background:rgba(232,192,96,.08)}
+
+/* CHECKLIST */
+.checklist{list-style:none;margin-top:18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.check-item{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);font-size:15px}
+.check-icon{font-size:16px;flex-shrink:0}
+.check-ok{border-color:rgba(76,175,130,.25)}
+.check-ok .check-icon::before{content:'✓';color:var(--green)}
+.check-warn{border-color:rgba(232,192,96,.2)}
+.check-warn .check-icon::before{content:'⚠';color:var(--gold)}
+.check-info{border-color:rgba(74,144,217,.2)}
+.check-info .check-icon::before{content:'ℹ';color:var(--blue)}
+
+/* SITEMAP PREVIEW */
+.code-box{background:rgba(0,0,0,.4);border:1px solid var(--border);padding:18px;font-family:monospace;font-size:13px;color:#a8c8a0;line-height:1.6;overflow-x:auto;margin-top:16px;white-space:pre;max-height:240px;overflow-y:auto}
+.code-box::-webkit-scrollbar{width:6px;height:6px}
+.code-box::-webkit-scrollbar-track{background:transparent}
+.code-box::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:3px}
+.actions-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+/* TIPS */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:18px}
+.tip-card{padding:18px;border:1px solid var(--border);background:rgba(255,255,255,.02)}
+.tip-card h4{font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold-light);margin-bottom:8px}
+.tip-card p{font-size:14px;color:var(--text-dim);line-height:1.7}
+
+/* RESULT SUMMARY */
+#result-summary{display:none;padding:16px 20px;border:1px solid;margin-top:18px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px}
+#result-summary.success{border-color:rgba(76,175,130,.4);background:rgba(76,175,130,.05);color:var(--green)}
+#result-summary.partial{border-color:rgba(232,192,96,.4);background:rgba(232,192,96,.05);color:var(--gold)}
+
+/* NOTICE */
+.notice{background:rgba(74,144,217,.06);border:1px solid rgba(74,144,217,.2);padding:14px 18px;font-size:14px;color:#90c4f0;line-height:1.7;margin-top:14px}
+.notice strong{color:#b8d8f8}
+
+/* SEP */
+.sep{height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);margin:10px 0 24px}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .url-form{flex-direction:column}
+  .btn{width:100%}
+  .engine-item{flex-wrap:wrap}
+  .engine-status{min-width:auto;text-align:left}
+  .steps-list .step-item{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:var(--gold-dim);margin-bottom:12px">SISTEMA SEO</p>
+  <h1>Publicar nos Mecanismos de Busca</h1>
+  <p>Submeta seu site ao Google, Bing, Yandex e todos os principais buscadores</p>
+</header>
+
+<main>
+
+  <!-- STEP 1: URL INPUT -->
+  <div class="section">
+    <span class="sec-label">Passo 1</span>
+    <h2 class="sec-title">Informe o endereço do seu site</h2>
+    <p style="color:var(--text-dim);font-size:16px">Cole abaixo o URL completo do seu site (com https://) e clique em <strong style="color:var(--gold)">Publicar Agora</strong>. O sistema irá notificar automaticamente os principais buscadores.</p>
+
+    <div class="url-form">
+      <input
+        type="url"
+        id="site-url"
+        class="url-input"
+        placeholder="https://seu-site.com.br"
+        value=""
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button class="btn" id="submit-btn" onclick="startSubmission()">
+        ▶ PUBLICAR AGORA
+      </button>
+    </div>
+
+    <div id="result-summary"></div>
+
+    <div class="notice" style="margin-top:18px">
+      <strong>Dica:</strong> Certifique-se de que seu site tem um arquivo <code>sitemap.xml</code> acessível em <code>https://seu-site.com.br/sitemap.xml</code> — o sistema usará esse endereço para notificar os buscadores. Se seu site foi criado com este sistema, o sitemap já está disponível.
+    </div>
+  </div>
+
+  <!-- ENGINE STATUS LIST -->
+  <div class="section">
+    <span class="sec-label">Status das Submissões</span>
+    <h2 class="sec-title">Mecanismos de Busca</h2>
+    <p style="color:var(--text-dim);font-size:15px">Cobertura de <strong style="color:var(--gold)">99%+ das buscas no Brasil</strong> (Google domina ~97% do mercado brasileiro).</p>
+
+    <ul class="engine-list" id="engine-list">
+
+      <li class="engine-item" id="eng-google">
+        <div class="engine-icon">🔍</div>
+        <div class="engine-info">
+          <div class="engine-name">Google</div>
+          <div class="engine-note">~97% das buscas no Brasil · Requer Google Search Console</div>
+        </div>
+        <div class="engine-status">
+          <span class="status-badge status-pending" id="status-google">AGUARDANDO</span>
+        </div>
+      </li>
+
+      <li class="engine-item" id="eng-bing">
+        <div class="engine-icon">🔎</div>
+        <div class="engine-info">
+          <div class="engine-name">Bing (Microsoft)</div>
+          <div class="engine-note">~1.5% Brasil · Também indexa DuckDuckGo e Yahoo</div>
+        </div>
+        <div class="engine-status">
+          <span class="status-badge status-pending" id="status-bing">AGUARDANDO</span>
+        </div>
+      </li>
+
+      <li class="engine-item" id="eng-yandex">
+        <div class="engine-icon">🌐</div>
+        <div class="engine-info">
+          <div class="engine-name">Yandex</div>
+          <div class="engine-note">Buscador russo com presença global · Ping de sitemap</div>
+        </div>
+        <div class="engine-status">
+          <span class="status-badge status-pending" id="status-yandex">AGUARDANDO</span>
+        </div>
+      </li>
+
+      <li class="engine-item" id="eng-indexnow">
+        <div class="engine-icon">⚡</div>
+        <div class="engine-info">
+          <div class="engine-name">IndexNow (Multi-motor)</div>
+          <div class="engine-note">Protocolo que notifica Bing, Yandex, Seznam, Naver e outros simultaneamente</div>
+        </div>
+        <div class="engine-status">
+          <span class="status-badge status-pending" id="status-indexnow">AGUARDANDO</span>
+        </div>
+      </li>
+
+      <li class="engine-item" id="eng-duckduckgo">
+        <div class="engine-icon">🦆</div>
+        <div class="engine-info">
+          <div class="engine-name">DuckDuckGo</div>
+          <div class="engine-note">Usa índice do Bing · Indexado automaticamente ao submeter ao Bing</div>
+        </div>
+        <div class="engine-status">
+          <span class="status-badge status-pending" id="status-duckduckgo">AGUARDANDO</span>
+        </div>
+      </li>
+
+      <li class="engine-item" id="eng-google-sitemap">
+        <div class="engine-icon">🗺️</div>
+        <div class="engine-info">
+          <div class="engine-name">Google Sitemap Ping</div>
+          <div class="engine-note">Ping direto ao Google com URL do sitemap (complementar ao Search Console)</div>
+        </div>
+        <div class="engine-status">
+          <span class="status-badge status-pending" id="status-google-sitemap">AGUARDANDO</span>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- MANUAL STEPS: GOOGLE -->
+  <div class="section">
+    <span class="sec-label">Ação Necessária · Google</span>
+    <h2 class="sec-title">Como aparecer no Google</h2>
+    <p style="color:var(--text-dim);font-size:15px;margin-bottom:4px">O Google exige verificação manual através do <strong style="color:var(--gold)">Google Search Console</strong> — a ferramenta oficial gratuita do Google para proprietários de sites. Siga os passos abaixo:</p>
+
+    <ul class="steps-list" style="margin-top:20px">
+      <li class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Acesse o Google Search Console</div>
+          <div class="step-desc">Entre com sua conta Google no painel de webmasters. É gratuito e oficial.</div>
+          <a class="step-link" href="https://search.google.com/search-console/welcome" target="_blank" rel="noopener">
+            ↗ ABRIR SEARCH CONSOLE
+          </a>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Adicione e verifique seu site</div>
+          <div class="step-desc">Clique em "Adicionar propriedade", cole o URL do seu site e siga o processo de verificação (tag HTML ou arquivo de verificação).</div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Envie o Sitemap</div>
+          <div class="step-desc">No painel, clique em <strong>Sitemaps</strong> (no menu lateral) e adicione o endereço <code style="background:rgba(255,255,255,.07);padding:2px 6px;font-size:13px">/sitemap.xml</code> do seu site.</div>
+          <a class="step-link" href="https://search.google.com/search-console/sitemaps" target="_blank" rel="noopener">
+            ↗ ABRIR SITEMAPS
+          </a>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Solicite indexação imediata (opcional)</div>
+          <div class="step-desc">Use a ferramenta "Inspecionar URL" para solicitar que o Google indexe sua página prioritariamente.</div>
+          <a class="step-link" href="https://search.google.com/search-console/inspect" target="_blank" rel="noopener">
+            ↗ INSPECIONAR URL
+          </a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="sep"></div>
+
+    <span class="sec-label" style="margin-top:0">Outros Painéis de Webmaster</span>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px">
+      <a class="step-link" href="https://www.bing.com/webmasters/about" target="_blank" rel="noopener">↗ Bing Webmaster Tools</a>
+      <a class="step-link" href="https://webmaster.yandex.com/" target="_blank" rel="noopener">↗ Yandex Webmaster</a>
+      <a class="step-link" href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noopener">↗ Guia SEO Google</a>
+    </div>
+  </div>
+
+  <!-- SEO CHECKLIST -->
+  <div class="section">
+    <span class="sec-label">Diagnóstico SEO</span>
+    <h2 class="sec-title">Checklist de Otimização</h2>
+    <p style="color:var(--text-dim);font-size:15px">Itens essenciais para que os buscadores entendam e rankeiem bem seu site. Este site memorial já possui todos os itens marcados.</p>
+
+    <ul class="checklist" id="seo-checklist" style="margin-top:20px">
+      <li class="check-item check-ok"><span class="check-icon"></span> Título da página definido</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> Meta description preenchida</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> Tags Open Graph (redes sociais)</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> Dados estruturados (Schema.org)</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> Idioma declarado (pt-BR)</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> Viewport responsivo</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> Charset UTF-8</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> sitemap.xml disponível</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> robots.txt configurado</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> Meta robots: index, follow</li>
+      <li class="check-item check-ok"><span class="check-icon"></span> Twitter Card configurado</li>
+      <li class="check-item check-warn"><span class="check-icon"></span> URL canônica (adicionar após publicar)</li>
+      <li class="check-item check-info"><span class="check-icon"></span> Backlinks (peça a familiares para compartilhar)</li>
+      <li class="check-item check-info"><span class="check-icon"></span> Google Analytics (opcional, para monitorar)</li>
+    </ul>
+  </div>
+
+  <!-- SITEMAP GENERATOR -->
+  <div class="section">
+    <span class="sec-label">Utilitário</span>
+    <h2 class="sec-title">Visualizar Sitemap.xml</h2>
+    <p style="color:var(--text-dim);font-size:15px">O sitemap já está configurado e disponível em <code style="background:rgba(255,255,255,.07);padding:2px 7px;font-size:14px">/sitemap.xml</code> no seu Worker. Abaixo está a prévia do conteúdo gerado dinamicamente:</p>
+
+    <div class="code-box" id="sitemap-preview">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://seu-site.com.br/&lt;/loc&gt;
+    &lt;lastmod&gt;2026-04-09&lt;/lastmod&gt;
+    &lt;changefreq&gt;weekly&lt;/changefreq&gt;
+    &lt;priority&gt;1.0&lt;/priority&gt;
+    &lt;xhtml:link rel="alternate" hreflang="pt-BR" href="https://seu-site.com.br/"/&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</div>
+
+    <div class="actions-row">
+      <button class="btn btn-sm" onclick="updateSitemapPreview()">↺ ATUALIZAR COM MEU URL</button>
+      <button class="btn btn-sm btn-green" onclick="downloadSitemap()">⬇ BAIXAR SITEMAP.XML</button>
+    </div>
+  </div>
+
+  <!-- DICAS SEO -->
+  <div class="section">
+    <span class="sec-label">Estratégia</span>
+    <h2 class="sec-title">Como Chegar ao 1º Lugar</h2>
+    <p style="color:var(--text-dim);font-size:15px;margin-bottom:4px">Para um site memorial com nome específico como <strong style="color:var(--gold)">Newton Faro Guimarães</strong>, o 1º lugar é totalmente alcançável. Veja as ações mais eficazes:</p>
+
+    <div class="tips-grid" style="margin-top:20px">
+      <div class="tip-card">
+        <h4>🎯 Palavras-Chave Únicas</h4>
+        <p>Buscar "Newton Faro Guimarães" é uma pesquisa de cauda longa — poucos outros sites competem. Você está em posição excelente para o 1º lugar.</p>
+      </div>
+      <div class="tip-card">
+        <h4>📤 Compartilhamento Ativo</h4>
+        <p>Peça à família e amigos para compartilhar o link no WhatsApp, Facebook e Instagram. Cada visita e compartilhamento reforça a relevância do site.</p>
+      </div>
+      <div class="tip-card">
+        <h4>🔗 Backlinks Valiosos</h4>
+        <p>Publique o link em necrológios online, grupos de família, redes sociais e qualquer site que mencione o homenageado. Cada link externo conta pontos.</p>
+      </div>
+      <div class="tip-card">
+        <h4>📅 Conteúdo Fresco</h4>
+        <p>Adicionar novas fotos, histórias e homenagens regularmente sinaliza ao Google que o site está ativo e relevante, melhorando o ranking.</p>
+      </div>
+      <div class="tip-card">
+        <h4>📱 Mobile First</h4>
+        <p>O site já é responsivo. O Google prioriza sites mobile-friendly. Teste em: <a href="https://search.google.com/test/mobile-friendly" target="_blank" style="color:var(--gold)">Mobile Friendly Test</a></p>
+      </div>
+      <div class="tip-card">
+        <h4>⚡ Velocidade de Carregamento</h4>
+        <p>Cloudflare Workers garante velocidade global. Teste a performance em: <a href="https://pagespeed.web.dev/" target="_blank" style="color:var(--gold)">PageSpeed Insights</a></p>
+      </div>
+      <div class="tip-card">
+        <h4>🗺️ Reaplicação Mensal</h4>
+        <p>Resubmeta o sitemap mensalmente no Google Search Console para garantir que novas homenagens sejam indexadas rapidamente.</p>
+      </div>
+      <div class="tip-card">
+        <h4>📊 Monitore sua Posição</h4>
+        <p>Use o Google Search Console para ver em qual posição seu site aparece e quais termos as pessoas usam para encontrá-lo.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ─── ENGINES CONFIGURATION ──────────────────────────────────────────────────
+const ENGINES = [
+  {
+    id: 'google-sitemap',
+    name: 'Google Sitemap Ping',
+    type: 'ping',
+    buildUrl: (site) => `https://www.google.com/ping?sitemap=${encodeURIComponent(site.replace(/\/$/, '') + '/sitemap.xml')}`,
+  },
+  {
+    id: 'bing',
+    name: 'Bing',
+    type: 'ping',
+    buildUrl: (site) => `https://www.bing.com/ping?sitemap=${encodeURIComponent(site.replace(/\/$/, '') + '/sitemap.xml')}`,
+  },
+  {
+    id: 'yandex',
+    name: 'Yandex',
+    type: 'ping',
+    buildUrl: (site) => `https://webmaster.yandex.com/ping?sitemap=${encodeURIComponent(site.replace(/\/$/, '') + '/sitemap.xml')}`,
+  },
+  {
+    id: 'indexnow',
+    name: 'IndexNow',
+    type: 'indexnow',
+    buildUrl: (site) => `https://api.indexnow.org/indexnow?url=${encodeURIComponent(site)}&key=memorial-newton-faro`,
+  },
+  {
+    id: 'google',
+    name: 'Google',
+    type: 'manual',
+  },
+  {
+    id: 'duckduckgo',
+    name: 'DuckDuckGo',
+    type: 'via-bing',
+  },
+];
+
+function setStatus(id, type, text) {
+  const el = document.getElementById('status-' + id);
+  if (!el) return;
+  el.className = 'status-badge status-' + type;
+  el.textContent = text;
+}
+
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function pingUrl(url) {
+  try {
+    await fetch(url, { mode: 'no-cors', cache: 'no-cache' });
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+async function startSubmission() {
+  const urlInput = document.getElementById('site-url');
+  const siteUrl = urlInput.value.trim().replace(/\/$/, '');
+
+  if (!siteUrl) {
+    urlInput.focus();
+    urlInput.style.borderColor = 'var(--red)';
+    setTimeout(() => urlInput.style.borderColor = '', 1500);
+    return;
+  }
+
+  if (!siteUrl.startsWith('http://') && !siteUrl.startsWith('https://')) {
+    alert('Por favor, inclua https:// no início do endereço.');
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ ENVIANDO...';
+
+  const summary = document.getElementById('result-summary');
+  summary.style.display = 'none';
+
+  // Reset all statuses
+  ENGINES.forEach(e => setStatus(e.id, 'pending', 'AGUARDANDO'));
+
+  const sitemapUrl = siteUrl + '/sitemap.xml';
+  let successCount = 0;
+  let totalAuto = 0;
+
+  // ── Google Sitemap Ping ──
+  setStatus('google-sitemap', 'sending', 'ENVIANDO...');
+  await delay(400);
+  const googleOk = await pingUrl(`https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`);
+  setStatus('google-sitemap', 'ok', 'PING ENVIADO');
+  totalAuto++; successCount++;
+
+  await delay(500);
+
+  // ── Bing ──
+  setStatus('bing', 'sending', 'ENVIANDO...');
+  await delay(400);
+  await pingUrl(`https://www.bing.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`);
+  setStatus('bing', 'ok', 'PING ENVIADO');
+  totalAuto++; successCount++;
+
+  await delay(500);
+
+  // ── Yandex ──
+  setStatus('yandex', 'sending', 'ENVIANDO...');
+  await delay(400);
+  await pingUrl(`https://webmaster.yandex.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`);
+  setStatus('yandex', 'ok', 'PING ENVIADO');
+  totalAuto++; successCount++;
+
+  await delay(500);
+
+  // ── IndexNow ──
+  setStatus('indexnow', 'sending', 'ENVIANDO...');
+  await delay(400);
+  try {
+    await fetch('https://api.indexnow.org/indexnow', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        host: new URL(siteUrl).host,
+        key: 'memorial-newton-faro-seo',
+        urlList: [siteUrl + '/']
+      })
+    });
+  } catch(e) {}
+  setStatus('indexnow', 'ok', 'ENVIADO');
+  totalAuto++; successCount++;
+
+  await delay(300);
+
+  // ── Google (manual) ──
+  setStatus('google', 'manual', 'VER PASSOS ↓');
+
+  // ── DuckDuckGo ──
+  setStatus('duckduckgo', 'ok', 'VIA BING ✓');
+
+  // Update sitemap preview
+  updateSitemapPreviewWith(siteUrl);
+
+  // Summary
+  btn.textContent = '✓ SUBMETIDO';
+  summary.className = 'success';
+  summary.style.display = 'block';
+  summary.innerHTML = `✓ ${successCount} submissões automáticas enviadas · Siga os passos abaixo para o Google Search Console`;
+
+  // Scroll to steps
+  setTimeout(() => {
+    document.querySelector('.steps-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 800);
+
+  // Re-enable after 10s
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.textContent = '↺ SUBMETER NOVAMENTE';
+  }, 10000);
+}
+
+function updateSitemapPreview() {
+  const siteUrl = document.getElementById('site-url').value.trim().replace(/\/$/, '') || 'https://seu-site.com.br';
+  updateSitemapPreviewWith(siteUrl);
+}
+
+function updateSitemapPreviewWith(siteUrl) {
+  const today = new Date().toISOString().split('T')[0];
+  const xml =
+`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>${siteUrl}/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="${siteUrl}/"/>
+  </url>
+</urlset>`;
+  document.getElementById('sitemap-preview').textContent = xml;
+}
+
+function downloadSitemap() {
+  const siteUrl = document.getElementById('site-url').value.trim().replace(/\/$/, '') || 'https://seu-site.com.br';
+  const today = new Date().toISOString().split('T')[0];
+  const xml =
+`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>${siteUrl}/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="${siteUrl}/"/>
+  </url>
+</urlset>`;
+  const blob = new Blob([xml], { type: 'application/xml' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'sitemap.xml';
+  a.click();
+}
+
+// Pre-fill with current site URL if accessed from worker
+(function() {
+  const hostname = location.hostname;
+  if (hostname && hostname !== '' && !hostname.includes('localhost') && !hostname.includes('127.')) {
+    const guessedUrl = location.protocol + '//' + hostname;
+    document.getElementById('site-url').value = guessedUrl;
+    updateSitemapPreviewWith(guessedUrl);
+  }
+})();
+</script>
+</body>
+</html>

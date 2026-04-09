@@ -20,7 +20,35 @@ export default {
 
     const url = new URL(request.url);
     const path = url.pathname;
+    const baseUrl = `${url.protocol}//${url.host}`;
     const db = env.DB;
+
+    // ── ROBOTS.TXT ── (sem banco necessário)
+    if (path === '/robots.txt') {
+      return new Response(
+        `User-agent: *\nAllow: /\n\nSitemap: ${baseUrl}/sitemap.xml\n`,
+        { headers: { 'Content-Type': 'text/plain', ...CORS } }
+      );
+    }
+
+    // ── SITEMAP.XML ── (sem banco necessário)
+    if (path === '/sitemap.xml') {
+      const today = new Date().toISOString().split('T')[0];
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>${baseUrl}/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="${baseUrl}/"/>
+  </url>
+</urlset>`;
+      return new Response(xml, {
+        headers: { 'Content-Type': 'application/xml; charset=UTF-8', ...CORS }
+      });
+    }
 
     // Se não há banco, retornar dados padrão
     if (!db) return j({error: 'Database not configured'}, 503);
